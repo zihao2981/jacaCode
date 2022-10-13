@@ -1,4 +1,4 @@
-package com.demoTCP;
+package com.TCP.demoTCP;
 
 import java.io.IOException;
 import java.io.InputStream;
