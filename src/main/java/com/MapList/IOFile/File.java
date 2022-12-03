@@ -2,6 +2,9 @@ package com.MapList.IOFile;
 import java.io.*;
 
 public class File {
+    public File(String s) {
+    }
+
     public static void main(String[] args) throws IOException {
         //创建一个文件并向文件中写数据。
         byte  os[] = {3,2,1,4,5,6,7};
