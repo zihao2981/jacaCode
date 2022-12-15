@@ -1,7 +1,10 @@
 package com.excel;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class mergeTest {
     /**
@@ -13,12 +16,23 @@ public class mergeTest {
     }
     public  static  void moreArea(){
         //区名集合
-        String[] ce={"崇明区.xlsx","奉贤区.xlsx","虹口区.xlsx","青浦区.xlsx"};
-        String[]  zs = {"宝山区.xlsx","崇明区.xlsx","奉贤区.xlsx","虹口区.xlsx","嘉定区.xlsx","金山区.xlsx","静安区.xlsx","闵行区.xlsx","浦东新区.xlsx","普陀区.xlsx","青浦区.xlsx","松江区.xlsx","徐汇区.xlsx","杨浦区.xlsx","长宁区.xlsx","黄浦区.xlsx"};
-        //文件夹路径
-        String cpath1 = "C:\\Users\\comic\\Desktop\\归档2022-12-02\\汇总-测试_20221202\\";
-        String cfile1 = "药厂上传、医院未传-测试_20221202\\";
-        String cfile2 = "医院上传、药厂未传-测试_20221202\\";
+//        String[] ce={"崇明区.xlsx","奉贤区.xlsx","虹口区.xlsx","青浦区.xlsx"};
+//        String[]  zs = {"宝山区.xlsx","崇明区.xlsx","奉贤区.xlsx","虹口区.xlsx","嘉定区.xlsx","金山区.xlsx","静安区.xlsx","闵行区.xlsx","浦东新区.xlsx","普陀区.xlsx","青浦区.xlsx","松江区.xlsx","徐汇区.xlsx","杨浦区.xlsx","长宁区.xlsx","黄浦区.xlsx"};
+        String[] ce={"崇明区.xlsx"};
+        String[]  zs = {"黄浦区.xlsx","崇明区.xlsx"};
+//        //文件夹路径
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf3=new SimpleDateFormat("MMdd");
+        Calendar cal   =   Calendar.getInstance();
+        cal.add(Calendar.DATE,   -1);
+        String date=sdf.format(cal.getTime());
+        String date2=sdf2.format(cal.getTime());
+        String date3=sdf3.format(cal.getTime());
+        String cpath1 = "C:\\Users\\wf\\Desktop\\归档"+date2+"\\汇总-测试_"+date+"\\";
+        String path = "C:\\Users\\wf\\Desktop\\合并\\";
+        String cfile1 = "药厂上传、医院未传-测试_"+date+"\\";
+        String cfile2 = "医院上传、药厂未传-测试_"+date+"\\";
         String wenti = "问题类型.xlsx";
         //测试合并
         for (int i = 0; i < ce.length; i++) {
@@ -39,15 +53,14 @@ public class mergeTest {
                 aaa.add(cpath1+cfile2+ce[i]);
                 sss.add("医院上传、药厂未传（测试环境）");
             }
-            aaa.add(cpath1+wenti);
+            aaa.add("C:\\Users\\wf\\Desktop\\"+wenti);
             sss.add("问题类型");
-            String path = cpath1+"合并\\";
-            Utils.mergeExcel(aaa, path, ce[i],sss);
+            Utils.mergeExcel(aaa, path, date3+"测试"+ce[i],sss);
         }
         //正式
-        String zpath1 = "C:\\Users\\comic\\Desktop\\归档2022-12-02\\汇总_20221202\\";
-        String zfile1 = "药厂上传、医院未传_20221202\\";
-        String zfile2 = "医院上传、药厂未传_20221202\\";
+        String zpath1 = "C:\\Users\\wf\\Desktop\\归档"+date2+"\\汇总_"+date+"\\";
+        String zfile1 = "药厂上传、医院未传_"+date+"\\";
+        String zfile2 = "医院上传、药厂未传_"+date+"\\";
         //正式合并
         for (int i = 0; i < zs.length; i++) {
             ArrayList<String> aaa = new ArrayList<>();
@@ -67,20 +80,19 @@ public class mergeTest {
                 aaa.add(zpath1+zfile2+zs[i]);
                 sss.add("医院上传、药厂未传");
             }
-            aaa.add(zpath1+wenti);
+            aaa.add("C:\\Users\\wf\\Desktop\\"+wenti);
             sss.add("问题类型");
-            String path = zpath1+"合并\\";
-            Utils.mergeExcel(aaa, path, zs[i],sss);
+            Utils.mergeExcel(aaa, path, date3+zs[i],sss);
         }
     }
     /**
      * 单个区
      */
     public  static  void oneArea(){
-
-        String path1 = "C:\\Users\\comic\\Desktop\\归档2022-12-02\\汇总_20221202\\";
-        String file1 = "药厂上传、医院未传_20221202\\";
-        String file2 = "医院上传、药厂未传_20221202\\";
+        String Date = "20221206";
+        String path1 = "C:\\Users\\wf\\Desktop\\归档2022-12-06\\汇总_20221206\\";
+        String file1 = "药厂上传、医院未传_20221206\\";
+        String file2 = "医院上传、药厂未传_20221206\\";
         String areaName="崇明区.xlsx";
         String wenti = "问题类型.xlsx";
         //这里是xls文件
