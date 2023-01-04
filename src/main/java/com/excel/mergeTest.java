@@ -55,7 +55,9 @@ public class mergeTest {
             }
             aaa.add("C:\\Users\\wf\\Desktop\\"+wenti);
             sss.add("问题类型");
+            if(filedd.exists()||file3.exists()){
             Utils.mergeExcel(aaa, path, date3+"测试"+ce[i],sss);
+            }
         }
         //正式
         String zpath1 = "C:\\Users\\wf\\Desktop\\归档"+date2+"\\汇总_"+date+"\\";
@@ -82,7 +84,9 @@ public class mergeTest {
             }
             aaa.add("C:\\Users\\wf\\Desktop\\"+wenti);
             sss.add("问题类型");
-            Utils.mergeExcel(aaa, path, date3+zs[i],sss);
+            if(filedd.exists()||file3.exists()) {
+                Utils.mergeExcel(aaa, path, date3 + zs[i], sss);
+            }
         }
     }
     /**
