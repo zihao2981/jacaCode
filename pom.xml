@@ -6,7 +6,13 @@
 
     <groupId>org.lyndon</groupId>
     <artifactId>javaDemo</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>000test</module>
+        <module>001javabase</module>
+        <module>002javaAdvanced</module>
+    </modules>
     <dependencies>
         <dependency>
             <groupId>org.apache.pdfbox</groupId>
@@ -57,6 +63,12 @@
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <version>4.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
